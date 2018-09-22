@@ -1,0 +1,14 @@
+body {
+    background-image: url("../images/images.png");
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    background-color: white;
+    opacity: .05;
+    width: 70%;
+    overflow: auto;
+    margin: 20px auto;
+    opacity: 0.8;
+    padding: 25px;
+}

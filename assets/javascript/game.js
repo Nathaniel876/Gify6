@@ -1,4 +1,4 @@
-var topics = ["spiderman", "SpongeBob", "Avergers", "Clarence"];
+var topics = ["spiderman", "SpongeBob", "Avergers", "Rick And Morty"];
 
 
 //renderbutton
@@ -8,11 +8,11 @@ function renderButton() {
         addBtn.addClass("btn btn-info topic-btn");
         addBtn.attr("data-name", topics[i]);
         addBtn.text(topics[i]);
-        $('.topBtn').append(addBtn);
+        $('.topBtn').prepend(addBtn);
     }
 }
 
-//click new button and steal gif
+
 $('#addTopic-btn').click(function (event) {
     event.preventDefault();
     var gifpush = $("#topics-input").val().trim();
@@ -20,9 +20,9 @@ $('#addTopic-btn').click(function (event) {
     renderButton();
 })
 
-$(document).on("click", ".topic-btn", stealSomeGif);
-
-function stealSomeGif() {
+$(document).on("click", ".topic-btn", addGif);
+function addGif() {
+    $(".topics-view").empty();
     var topicName = $(this).attr("data-name");
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
         topicName + "&api_key=dc6zaTOxFJmzC&rating= g&limit=10";
@@ -43,10 +43,11 @@ function stealSomeGif() {
             var newImage = $("<img class='newGif'>");
             newImage.attr("src", topicData[i].images.fixed_height_still.url);
 
-            gifDiv.append(p);
-            gifDiv.append(newImage);
+            gifDiv.prepend(p);
+            gifDiv.prepend(newImage);
 
-            $(".topics-view").append(gifDiv);
+            $(".topics-view").prepend(gifDiv);
+            
         }
     })
 }
