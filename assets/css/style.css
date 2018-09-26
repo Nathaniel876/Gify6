@@ -5,10 +5,9 @@ body {
 
 .container {
     background-color: white;
-    opacity: .05;
+    opacity: .8;
     width: 70%;
     overflow: auto;
     margin: 20px auto;
-    opacity: 0.8;
     padding: 25px;
 }

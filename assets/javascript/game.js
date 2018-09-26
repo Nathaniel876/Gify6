@@ -3,6 +3,7 @@ var topics = ["spiderman", "SpongeBob", "Avergers", "Rick And Morty"];
 
 //renderbutton
 function renderButton() {
+    $('.topBtn').empty();
     for (var i = 0; i < topics.length; i++) {
         var addBtn = $('<button>');
         addBtn.addClass("btn btn-info topic-btn");
@@ -13,7 +14,7 @@ function renderButton() {
 }
 
 
-$('#addTopic-btn').click(function (event) {
+$('#add-topics').on("click", function (event) {
     event.preventDefault();
     var gifpush = $("#topics-input").val().trim();
     topics.push(gifpush);
@@ -47,7 +48,7 @@ function addGif() {
             gifDiv.prepend(newImage);
 
             $(".topics-view").prepend(gifDiv);
-            
+
         }
     })
 }
